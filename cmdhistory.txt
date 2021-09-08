@@ -1,0 +1,1000 @@
+   18  ls
+   19  ls -lt
+   20  grep -lni FAILED *.log
+   21  vi trace_21.06.03_18.31.48.0.log
+   22  ls -lt
+   23  vi trace_21.06.03_18.31.48.0.log
+   24  cd ..
+   25  kubectl delete -f ./batchjobmulti.yaml; kubectl delete -f ./batchjobmulti2.yaml 
+   26  mkdir /tmp/recoveryTrc;kubectl create -f ./batchjobmulti.yaml;sleep 240;kubectl create -f ./batchjobmulti2.yaml
+   27  mkdir job1trc
+   28  cd job1trc
+   29  kubectl cp  batch-fv7dg:tmp/job1trace ./job1trace -c bonuspayout 
+   30  cd ..
+   31  mkdir job2trc
+   32  cd job2tr
+   33  cd job2trc
+   34  kubectl cp  batch-f2xj7:tmp/job1trace ./job1trace -c bonuspayout 
+   35  kubectl cp  batch-f2xjz:tmp/job1trace ./job1trace -c bonuspayout 
+   36  kubectl cp  batch-f2xjz:tmp/job2trace ./job2trace -c bonuspayout 
+   37  kubectl cp  batch2-f2xjz:tmp/job2trace ./job2trace -c bonuspayout 
+   38  ls
+   39  cd job2trace/
+   40  ls
+   41  vi trace_21.06.03_18.49.59.0.log 
+   42  vi trace.log 
+   43  cd ..
+   44  kubectl delete -f ./batchjobmulti.yaml; kubectl delete -f ./batchjobmulti2.yaml 
+   45  kubectl create -f ./batchjobmulti.yaml;sleep 180;kubectl create -f ./batchjobmulti2.yaml
+   46  kubectl delete -f ./batchjobmulti.yaml; kubectl delete -f ./batchjobmulti2.yaml 
+   47  kubectl create -f ./batchjobmulti.yaml;sleep 180;kubectl create -f ./batchjobmulti2.yaml
+   48  ls -lt
+   49  rm -rf job1trc/
+   50  rm -rf job2trc/
+   51  mkdir job1trc
+   52  kubectl cp  batch-shqwm:tmp/job1trace ./job1trace -c bonuspayout 
+   53  kubectl cp  batch2-nd7gd:tmp/job1trace ./job1trace -c bonuspayout 
+   54  kubectl cp  batch2-nd7gd:tmp/job2trace ./job2trace -c bonuspayout 
+   55  ls
+   56  ls -lt
+   57  cd job2trace/
+   58  ls
+   59  cd ..
+   60  cd job1trace/
+   61  ls
+   62  ls -la
+   63  kubectl cp  batch2-nd7gd:tmp/finaltrace ./finaltrace -c bonuspayout 
+   64  kubectl cp  batch-shqwm:tmp/finaltrace ./finaltrace -c bonuspayout 
+   65  kubectl exec --stdin --tty  sampledatabasenew-65dd55b44  -- /bin/bash
+   66  kubectl exec --stdin --tty sampledatabasenew-65dd55b44 -- /bin/bash
+   67  kubectl exec --stdin --tty  sampledatabasenew-65dd55b44-l8g8r -- /bin/bash
+   68  systemctl status xrdp.service
+   69  systemctl stop xrdp.service
+   70  systemctl start xrdp.service
+   71  systemctl status xrdp.service
+   72  systemctl enable xrdp.service
+   73  minikube start --force --driver=docker --kubernetes-version=v1.19.8 &
+   74  minikube dashboard --url
+   75  minikube start --force --driver=docker --kubernetes-version=v1.19.8
+   76  cd sample.batch.bonuspayout/
+   77  vi batchjobmulti.yaml 
+   78  kubectl delete -f ./batchjobmulti.yaml
+   79  kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com 
+   80  kubectl delete -f ./batchjobmulti.yaml
+   81  kubectl create -f ./batchjobmulti.yaml
+   82  find src -name "server.xml" -exec vi {} \;
+   83  kubectl delete -f ./batchjobmulti.yaml
+   84  kubectl create -f ./batchjobmulti.yaml
+   85  kubectl exec --stdin --tty  sampledatabasenew-65dd55b44-l8g8r -- /bin/bash
+   86  cd sample.batch.bonuspayout/
+   87  ls
+   88  vi adminctr.yaml
+   89  mkdir adminctr
+   90  vi adminctr.yaml
+   91  cd adminctr/
+   92  vi server.xml
+   93  cd ..
+   94  vi Dockerfile-adminctr
+   95  minikube dashboard --url &
+   96  ls
+   97  clear
+   98  cd sample.batch.bonuspayout/
+   99  ls -lt
+  100  vi adminctr.yaml
+  101  ls -lt
+  102  cd adminctr/
+  103  ls
+  104  cd ..
+  105  vi adminctr.yaml 
+  106  cd adminctr/
+  107  vi server.xml 
+  108  vi Dockerfile-adminctr
+  109  docker build -t ajymau/adminctr:1 .
+  110  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr 
+  111  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .
+  112  docker images
+  113  docker run -it 145b531dea2b /bin/bash
+  114  vi Dockerfile-adminctr 
+  115  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .
+  116  docker images
+  117  docker run -it 6bdc6219e05c /bin/bash
+  118  vi Dockerfile-adminctr 
+  119  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .
+  120  vi Dockerfile-adminctr 
+  121  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .
+  122  docker images
+  123  docker run -it b6ee2894fba2 /bin/bash
+  124  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  125  cd ..
+  126  vi adminctr.yaml 
+  127  kubectl apply -f ./adminctr.yaml 
+  128  minikube start --force --driver=docker --kubernetes-version=v1.19.8
+  129  kubectl apply -f ./adminctr.yaml 
+  130  kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com 
+  131  vi adminctr.yaml 
+  132  kubectl apply -f ./adminctr.yaml 
+  133  minikube service adminctr
+  134  minikube service adminctr -n  my-postgresql-operator-dev4devs-com 
+  135  minikube service list -n  my-postgresql-operator-dev4devs-com 
+  136  minikube service adminctr-service -n  my-postgresql-operator-dev4devs-com 
+  137  ls
+  138  vi adminctr.yaml 
+  139  cd sample.batch.bonuspayout/
+  140  ls
+  141  vi adminctr.yaml 
+  142  cd adminctr/
+  143  ls
+  144  vi Dockerfile-adminctr 
+  145  docker build -t ajymau/adminctr:1 .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  146  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  147  vi server.xml 
+  148  cd ..
+  149  vi src/main/liberty/config/server.xml 
+  150  vi adminctr/server.xml 
+  151  vi src/main/liberty/config/server.xml 
+  152  docker build -t ajymau/bonuspayout:5 .; docker tag ajymau/bonuspayout:5 ajymau/bonuspayout:dev-last; docker push ajymau/bonuspayout:dev-last
+  153  kubectl create -f ./batchjobmulti.yaml
+  154  kubectl delete -f ./batchjobmulti.yaml
+  155  kubectl create -f ./batchjobmulti.yaml
+  156  kubectl delete -f ./batchjobmulti.yaml
+  157  kubectl create -f ./batchjobmulti.yaml
+  158  kubectl delete -f ./batchjobmulti.yaml
+  159  kubectl create -f ./batchjobmulti.yaml
+  160  kubectl delete -f ./batchjobmulti.yaml
+  161  kubectl create -f ./batchjobmulti.yaml
+  162  minikube ip
+  163  cd sample.batch.bonuspayout/
+  164  mkdir ingress
+  165  cd ingress
+  166  vi ingress.yaml
+  167  git status
+  168  cd ..
+  169  cd adminctr/
+  170  ls
+  171  vi Dockerfile-adminctr 
+  172  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .
+  173  docker images
+  174  docker run -it fa59ee823210
+  175  cd /logs
+  176  ls
+  177  docker run -it fa59ee823210 /bin/bash
+  178  ls
+  179  vi Dockerfile-adminctr 
+  180  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  181  cd ..
+  182  kubectl apply -f adminctr.yaml 
+  183  cd adminctr/
+  184  vi Dockerfile-adminctr 
+  185  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  186  ls
+  187  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  188  docker build -t ajymau/adminctr:2 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:2 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  189  docker images
+  190  q!
+  191  vi Dockerfile-adminctr 
+  192  docker build -t ajymau/adminctr:2 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:2 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  193  vi Dockerfile-adminctr 
+  194  docker build -t ajymau/adminctr:2 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:2 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  195  vi Dockerfile-adminctr 
+  196  docker build -t ajymau/adminctr:2 -f ./Dockerfile-adminctr .;docker tag ajymau/adminctr:2 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  197  ls
+  198  cd sample.batch.bonuspayout/
+  199  cd adminctr/
+  200  ls
+  201  vi Dockerfile-adminctr 
+  202  docker build -t ajymau/bonuspayout:5 .; docker tag ajymau/bonuspayout:5 ajymau/bonuspayout:dev-last; docker push ajymau/bonuspayout:dev-last
+  203  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  204  vi Dockerfile-adminctr 
+  205  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  206  vi Dockerfile-adminctr 
+  207  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  208  ls
+  209  vi Dockerfile-adminctr 
+  210  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  211  vi Dockerfile-adminctr 
+  212  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  213  vi Dockerfile-adminctr 
+  214  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  215  docker images
+  216  cd ..
+  217  vi adminctr.yaml 
+  218  vi adminctr/Dockerfile-adminctr 
+  219  cd sample.batch.bonuspayout/
+  220  git status
+  221  git restore src/main/java/com/ibm/websphere/samples/batch/jpa/DatabaseSetup.java
+  222  git status
+  223  ls
+  224  rm failtrace/ job2trace/ job1trc job1trace/ ssltrace2 ssltraces trclogs/
+  225  rm -rf failtrace/ job2trace/ job1trc job1trace/ ssltrace2 ssltraces trclogs/
+  226  cd adminctr/
+  227  ls
+  228  vi server.xml
+  229  vi Dockerfile-adminctr 
+  230  kubectl exec --stdin --tty adminctr-deployment-77b4568c64-2jjkt -- /bin/bash
+  231  docker ps
+  232  kubectl exec --stdin --tty adminctr-deployment-77b4568c64-2jjkt -- /bin/bash
+  233  docker pull ajymau/adminctr
+  234  docker pull ajymau/adminctr:dev-last
+  235  docker images
+  236  cd ..
+  237  vi adminctr.yaml 
+  238  cd adminctr/
+  239  vi Dockerfile-adminctr 
+  240  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  241  vi Dockerfile-adminctr 
+  242  vi ../adminctr.yaml 
+  243  cd sample.batch.bonuspayout/
+  244  cp pom.xml ./adminctr
+  245  cd adminctr/
+  246  ls
+  247  mkdir -p ./src/main/liberty/config
+  248  mv server.xml src/main/liberty/config/
+  249  ls
+  250  odo
+  251  odo create java-openliberty adminctr
+  252  odo push
+  253  odo log
+  254  ls
+  255  vi devfile.yaml 
+  256  clear
+  257  cd sample.batch.bonuspayout/
+  258  kubectl apply -f ./adminctr.yaml 
+  259  cd ..
+  260  cd -
+  261  cd adminctr/
+  262  find . -name "server.xml" -exec vi {} \;
+  263  cd ..
+  264  ls
+  265  vi adminctr.yaml 
+  266  kubectl apply -f ./adminctr.yaml 
+  267  cd adminctr/
+  268  vi Dockerfile-adminctr 
+  269  cd ..
+  270  ls
+  271  vi adminctr.yaml 
+  272  kubectl apply -f ./adminctr.yaml 
+  273  cd adminctr/
+  274  ls
+  275  cp src/main/liberty/config/server.xml .
+  276  odo delete
+  277  ls
+  278  ls -lt
+  279  rm -rf devfile.yaml src/ pom.xml .odo
+  280  ls
+  281  mv server.xml server.xml.adminonly
+  282  cp ../src/main/liberty/config/server.xml .
+  283  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  284  vi Dockerfile-adminctr 
+  285  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  286  vi server.xml
+  287  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  288  kubectl exec --stdin --tty adminctr-deployment-58fd46b9b6-dfkfq -- /bin/bash
+  289  kubctl cp adminctr-deployment-58fd46b9b6-dfkfq:tmp/out.html out.html
+  290  kubectl cp adminctr-deployment-58fd46b9b6-dfkfq:tmp/out.html out.html
+  291  ls
+  292  minikube enable addons ingress
+  293  minikube addons enable ingress
+  294  kubectl config set-context --current --namespace=ingress-nginx 
+  295  > kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+  296  > kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=ajymau --docker-password=a83a5c7b-c886-4f6f-bc84-ded77e106fdd --docker-email=ajmauer@us.ibm.com
+  297  kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=ajymau --docker-password=a83a5c7b-c886-4f6f-bc84-ded77e106fdd --docker-email=ajmauer@us.ibm.com
+  298  kubectl patch serviceaccount ingress-nginx-admission -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+  299  kubectl patch serviceaccount ingress-nginx -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+  300  vi ingress.yaml
+  301  minikube ip
+  302  vi ingress.yaml
+  303  vi ../adminctr.yaml 
+  304  vi ingress.yaml
+  305  vi ../adminctr.yaml 
+  306  vi ingress.yaml
+  307  kubectl apply -f ./ingress.yaml 
+  308  vi ingress.yaml
+  309  kubectl apply -f ./ingress.yaml 
+  310  vi ingress.yaml
+  311  kubectl apply -f ./ingress.yaml 
+  312  vi ingress.yaml
+  313  vi ../adminctr.yaml 
+  314  vi ingress.yaml
+  315  kubectl apply -f ./ingress.yaml 
+  316  vi ingress.yaml
+  317  kubectl apply -f ./ingress.yaml 
+  318  kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com 
+  319  kubectl apply -f ./ingress.yaml 
+  320  minikube ip
+  321  vi ingress.yaml
+  322  kubectl apply -f ./ingress.yaml 
+  323  vi ingress.yaml
+  324  kubectl apply -f ./ingress.yaml 
+  325  vi ingress.yaml
+  326  vi ../adminctr.yaml 
+  327  kubectl exec --stdin --tty adminctr-deployment-58fd46b9b6-dfkfq -- /bin/bash
+  328  cd sample.batch.bonuspayout/
+  329  cd adminctr/
+  330  ls
+  331  vi ingress.yaml 
+  332  kubectl apply -f ./ingress.yaml 
+  333  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  334  vi ingress.yaml 
+  335  vi /etc/hosts
+  336  vi ../adminctr.yaml 
+  337  vi ingress.yaml 
+  338  kubectl apply -f ./ingress.yaml 
+  339  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  340  vi ingress.yaml 
+  341  kubectl apply -f ./ingress.yaml 
+  342  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  343  vi ../adminctr.yaml 
+  344  vi ingress.yaml 
+  345  minikube addone disable ingress
+  346  minikube addons disable ingress
+  347  vi /etc/hosts
+  348  minikube addons enable ingress
+  349  vi ../adminctr.yaml 
+  350  cd ..
+  351  kubectl apply -f adminctr.yaml 
+  352  cd adminctr/
+  353  ls
+  354  vi ingress.yaml 
+  355  kubectl apply -f ingress.yaml 
+  356  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  357  vi /etc/hosts
+  358  vi ingress.yaml 
+  359  kubectl apply -f ingress.yaml 
+  360  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  361  vi ingress.yaml 
+  362  kubectl apply -f ingress.yaml 
+  363  kubectl get ingress -n my-postgresql-operator-dev4devs-com 
+  364  ls ../src/main/liberty/config/
+  365  cp ../src/main/liberty/config/postgresql.xml .
+  366  vi Dockerfile-adminctr 
+  367  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  368  vi server.xml
+  369  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  370  vi server.xml
+  371  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  372  vi ../batchjobmulti.yaml 
+  373  vi ../adminctr.yaml 
+  374  vi Dockerfile-adminctr 
+  375  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  376  find . -name "*.*" -exec grep -lni ${POSTGRES_PORT} {} \;
+  377  find . -name "*.*" -exec grep -lni "${POSTGRES_PORT}" {} \;
+  378  vi postgresql.xml 
+  379  vi ../adminctr.yaml 
+  380  kubectl apply -f ../adminctr.yaml 
+  381  vi ../adminctr.yaml 
+  382  kubectl apply -f ../adminctr.yaml 
+  383  cd sample.batch.bonuspayout/
+  384  git status
+  385  cd sample.batch.bonuspayout/
+  386  ls
+  387  git status
+  388  rm -rf trace*
+  389  git status
+  390  rm -rf postgre.log 
+  391  rm -rf out.txt 
+  392  git status
+  393  cd ..
+  394  ls
+  395  mkdir latestBatch
+  396  cd latestBatch/
+  397  git clone https://github.com/ajm01/sample.batch.bonuspayout.git
+  398  ls
+  399  cd sample.batch.bonuspayout/
+  400  ls
+  401  git checkout batch-multicontainer 
+  402  ls
+  403  docker build -t ajymau/bonuspayout:5 .; docker tag ajymau/bonuspayout:5 ajymau/bonuspayout:test; docker push ajymau/bonuspayout:test
+  404  docker build -t ajymau/batchdriver:1 -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:1 ajymau/batchdriver:dev-last; docker push ajymau/batchdriver:dev-last
+  405  vi Dockerfile-sidecar 
+  406  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  407  vi Dockerfile-sidecar 
+  408  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  409  vi Dockerfile-sidecar 
+  410  ls
+  411  vi batchjobmulti.yaml 
+  412  kubectl delete -f ./batchjobmulti.yaml
+  413  kubectl create -f ./batchjobmulti.yaml
+  414  kubectl delete -f ./batchjobmulti.yaml
+  415  vi batchjobmulti.yaml 
+  416  vi src/scripts/batchframework.py 
+  417  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  418  kubectl delete -f ./batchjobmulti.yaml
+  419  kubectl create -f ./batchjobmulti.yaml
+  420  vi batchjobmulti.yaml 
+  421  kubectl delete -f ./batchjobmulti.yaml
+  422  kubectl create -f ./batchjobmulti.yaml
+  423  vi src/scripts/batchframework.py 
+  424  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  425  kubectl delete -f ./batchjobmulti.yaml
+  426  vi batchjobmulti.yaml 
+  427  kubectl create -f ./batchjobmulti.yaml
+  428  vi src/scripts/batchframework.py 
+  429  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  430  kubectl delete -f ./batchjobmulti.yaml
+  431  kubectl create -f ./batchjobmulti.yaml
+  432  vi src/scripts/batchframework.py 
+  433  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  434  kubectl delete -f ./batchjobmulti.yaml
+  435  kubectl create -f ./batchjobmulti.yaml
+  436  vi src/scripts/batchframework.py 
+  437  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  438  kubectl delete -f ./batchjobmulti.yaml
+  439  kubectl create -f ./batchjobmulti.yaml
+  440  vi src/scripts/batchframework.py 
+  441  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  442  kubectl delete -f ./batchjobmulti.yaml
+  443  kubectl create -f ./batchjobmulti.yaml
+  444  kubectl delete -f ./batchjobmulti.yaml
+  445  vi src/scripts/batchframework.py 
+  446  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  447  kubectl delete -f ./batchjobmulti.yaml
+  448  kubectl create -f ./batchjobmulti.yaml
+  449  vi src/scripts/batchframework.py 
+  450  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  451  kubectl delete -f ./batchjobmulti.yaml
+  452  kubectl create -f ./batchjobmulti.yaml
+  453  vi src/scripts/batchframework.py 
+  454  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  455  kubectl delete -f ./batchjobmulti.yaml
+  456  kubectl create -f ./batchjobmulti.yaml
+  457  vi src/scripts/batchframework.py 
+  458  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  459  kubectl delete -f ./batchjobmulti.yaml
+  460  kubectl create -f ./batchjobmulti.yaml
+  461  vi src/scripts/batchframework.py 
+  462  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  463  kubectl delete -f ./batchjobmulti.yaml
+  464  kubectl create -f ./batchjobmulti.yaml
+  465  vi src/scripts/batchframework.py 
+  466  kubectl delete -f ./batchjobmulti.yaml
+  467  kubectl create -f ./batchjobmulti.yaml
+  468  vi src/scripts/batchframework.py 
+  469  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  470  kubectl delete -f ./batchjobmulti.yaml
+  471  kubectl create -f ./batchjobmulti.yaml
+  472  ls
+  473  cd latestBatch/
+  474  ls
+  475  cd sample.batch.bonuspayout/
+  476  ls
+  477  vi batchjobmulti.yaml 
+  478  vi batchjobmulti2.yaml 
+  479  kubectl delete -f ./batchjobmulti.yaml
+  480  kubectl create -f ./batchjobmulti.yaml
+  481  vi batchjobmulti.yaml 
+  482  kubectl delete -f ./batchjobmulti.yaml
+  483  echo $PWD
+  484  vi src/scripts/batchframework.py 
+  485  kubectl delete -f ./batchjobmulti.yaml
+  486  vi batchjobmulti.yaml 
+  487  kubectl create -f ./batchjobmulti.yaml
+  488  vi src/scripts/batchframework.py 
+  489  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  490  kubectl delete -f ./batchjobmulti.yaml
+  491  kubectl create -f ./batchjobmulti.yaml
+  492  vi src/scripts/batchframework.py 
+  493  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  494  kubectl delete -f ./batchjobmulti.yaml
+  495  kubectl create -f ./batchjobmulti.yaml
+  496  vi src/scripts/batchframework.py 
+  497  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  498  kubectl delete -f ./batchjobmulti.yaml
+  499  kubectl create -f ./batchjobmulti.yaml
+  500  vi src/scripts/batchframework.py 
+  501  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  502  kubectl delete -f ./batchjobmulti.yaml
+  503  kubectl create -f ./batchjobmulti.yaml
+  504  vi src/scripts/batchframework.py 
+  505  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  506  kubectl delete -f ./batchjobmulti.yaml
+  507  kubectl create -f ./batchjobmulti.yaml
+  508  vi src/scripts/batchframework.py 
+  509  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  510  kubectl delete -f ./batchjobmulti.yaml
+  511  kubectl create -f ./batchjobmulti.yaml
+  512  kubectl delete -f ./batchjobmulti.yaml
+  513  vi batchjobmulti.yaml 
+  514  kubectl create -f ./batchjobmulti.yaml
+  515  ls
+  516  cd ../..
+  517  cd sample.batch.bonuspayout/
+  518  cd adminctr/
+  519  ls
+  520  vi server.xml
+  521  docker build -t ajymau/adminctr:1 -f ./Dockerfile-adminctr .; docker tag ajymau/adminctr:1 ajymau/adminctr:dev-last; docker push ajymau/adminctr:dev-last
+  522  docker images
+  523  kubectl delete -f ./batchjobmulti.yaml
+  524  cd latestBatch/
+  525  cd sample.batch.bonuspayout/
+  526  kubectl delete -f ./batchjobmulti.yaml
+  527  kubectl create -f ./batchjobmulti.yaml
+  528  mkdir logs
+  529  cd logs
+  530  cd ..
+  531  kubectl delete -f ./batchjobmulti.yaml
+  532  kubectl create -f ./batchjobmulti.yaml
+  533  cd logs
+  534  kubectl cp  adminctr-deployment-bb5d67bc4-46c79:logs/trace.log ./trace.log
+  535  ls
+  536  kubectl cp  adminctr-deployment-bb5d67bc4-46c79:logs/trace_21.06.10_19.09.02.0.log ./trace_21.06.10_19.09.02.0.log
+  537  kubectl cp  adminctr-deployment-bb5d67bc4-46c79:logs/ffdc ./ffdc
+  538  ls
+  539  cd ffdc
+  540  ls
+  541  cd ../
+  542  cd ..
+  543  vi src/scripts/batchframework.py 
+  544  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  545  vi batchjobmulti.yaml 
+  546  kubectl delete -f ./batchjobmulti.yaml
+  547  kubectl create -f ./batchjobmulti.yaml
+  548  minikube addons list
+  549  minikube addone enable metrics-server
+  550  minikube addons enable metrics-server
+  551  kubectl get pods --all-namespaces | grep metrics-server
+  552  kubectl delete -f ./batchjobmulti.yaml
+  553  kubectl get pods --all-namespaces | grep metrics-server
+  554  kubectl create -f ./batchjobmulti.yaml
+  555  kubectl delete -f ./batchjobmulti.yaml
+  556  kubectl create -f ./batchjobmulti.yaml
+  557  kubectl top pod batch-5wrtf  --namespace my-postgresql-operator-dev4devs-com  --containers
+  558  kubectl describe node minikube
+  559  kubectl delete -f ./batchjobmulti.yaml
+  560  kubectl create -f ./batchjobmulti.yaml
+  561  kubectl describe node minikube
+  562  kubectl get pods
+  563  git status
+  564  cd latestBatch/sample.batch.bonuspayout/\git status
+  565  cd latestBatch/sample.batch.bonuspayout
+  566  git status
+  567  vi batchjobmulti2.yaml 
+  568  ls
+  569  cd ..
+  570  ls
+  571  cd ..
+  572  cd sample.batch.bonuspayout/
+  573  ls
+  574  git status
+  575  cd sample.batch.bonuspayout/
+  576  vi batchjobmulti.yaml 
+  577  cd ..
+  578  cd latestBatch/sample.batch.bonuspayout/
+  579  vi batchjobmulti.yaml 
+  580  kubectl delete -f ./batchjobmulti.yaml
+  581  kubectl create -f ./batchjobmulti.yaml
+  582  kubectl delete -f ./batchjobmulti.yaml
+  583  kubectl create -f ./batchjobmulti.yaml
+  584  vi batchjobmulti.yaml 
+  585  minikube stop
+  586  minikube start --force --driver=docker --kubernetes-version=v1.19.8
+  587  minikube stop
+  588  service docker stop
+  589  sudo systemctl start docker
+  590  minikube start --force --driver=docker --kubernetes-version=v1.19.8
+  591  kubectl delete -f ./batchjobmulti.yaml
+  592  kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com 
+  593  kubectl delete -f ./batchjobmulti.yaml
+  594  kubectl create -f ./batchjobmulti.yaml
+  595  kubectl get pods
+  596  vi batchjobmulti.yaml 
+  597  kubectl get pods
+  598  kubectl delete -f ./batchjobmulti.yaml
+  599  kubectl create -f ./batchjobmulti.yaml
+  600  kubectl get pods
+  601  kubectl delete -f ./batchjobmulti.yaml
+  602  vi batchjobmulti.yaml 
+  603  kubectl create -f ./batchjobmulti.yaml
+  604  kubectl get pods
+  605  kubectl delete -f ./batchjobmulti.yaml
+  606  kubectl create -f ./batchjobmulti.yaml
+  607  kubectl get pods
+  608  vi batchjobmulti.yaml 
+  609  vi src/scripts/batchframework.py 
+  610  docker build -t ajymau/batchdriver:test -f ./Dockerfile-sidecar .; docker tag ajymau/batchdriver:test ajymau/batchdriver:test; docker push ajymau/batchdriver:test
+  611  kubectl delete -f ./batchjobmulti.yaml
+  612  kubectl create -f ./batchjobmulti.yaml
+  613  kubectl get pods
+  614  echo $PWD
+  615  git status
+  616  cd
+  617  cd sample.batch.bonuspayout/
+  618  git status
+  619  ls
+  620  cd ..
+  621  cd latestBatch/sample.batch.bonuspayout/
+  622  kubectl delete -f ./batchjobmulti.yaml
+  623  vi batchjobmulti.yaml 
+  624  kubectl create -f ./batchjobmulti.yaml
+  625  kubectl get pods
+  626  mkdir partitions
+  627  cd partitions
+  628  git clone https://github.com/ajm01/sample.batch.bonuspayout.git
+  629  cd sample.batch.bonuspayout/
+  630  git checkout partitions
+  631  cd partitions/
+  632  ls
+  633  kubectl create -f ./batchpartitionjob.yaml 
+  634  vi batchpartitionjob.yaml 
+  635  kubectl create -f ./batchpartitionjob.yaml 
+  636  kubectl delete -f ./batchpartitionjob.yaml 
+  637  vi batchpartitionjob.yaml 
+  638  kubectl create -f ./batchpartitionjob.yaml 
+  639  kubectl delete -f ./batchpartitionjob.yaml 
+  640  vi batchpartitionjob.yaml 
+  641  kubectl create -f ./batchpartitionjob.yaml 
+  642  mkdir logs
+  643  cd logs
+  644  kubectl cp batchpartition-r8nx9:logs/messages.log ./messages.log
+  645  cd ..
+  646  kubectl delete -f ./batchpartitionjob.yaml 
+  647  kubectl create -f ./batchpartitionjob.yaml 
+  648  kubectl delete -f ./batchpartitionjob.yaml 
+  649  kubectl create -f ./batchpartitionjob.yaml 
+  650  kubectl delete -f ./batchpartitionjob.yaml 
+  651  kubectl create -f ./batchpartitionjob.yaml 
+  652  vi batchpartitionjob.yaml 
+  653  kubectl delete -f ./batchpartitionjob.yaml 
+  654  kubectl create -f ./batchpartitionjob.yaml 
+  655  vi batchpartitionjob.yaml 
+  656  kubectl delete -f ./batchpartitionjob.yaml 
+  657  git status
+  658  vi batchpartitionjob.yaml 
+  659  kubectl delete -f ./batchpartitionjob.yaml 
+  660  kubectl create -f ./batchpartitionjob.yaml 
+  661  ls
+  662  vi server-OL-TLEx.xml 
+  663  kubectl delete -f ./batchpartitionjob.yaml 
+  664  kubectl create -f ./batchpartitionjob.yaml 
+  665  git status
+  666  git restore server-OL-TLEx.xml
+  667  ls
+  668  cd partitions/
+  669  ls
+  670  cd sample.batch.bonuspayout/
+  671  ls
+  672  ls -lt
+  673  cd partitions/
+  674  ls
+  675  vi batchpartitionjob.yaml 
+  676  kubectl delete -f ./batchpartitionjob.yaml 
+  677  kubectl create -f ./batchpartitionjob.yaml 
+  678  kubectl delete -f ./batchpartitionjob.yaml 
+  679  ls
+  680  kubectl create -f ./batchpartitionjob.yaml 
+  681  ls
+  682  vi server-OL-TLEx.xml 
+  683  ls
+  684  vi server-PExec.xml 
+  685  vi batchpartitionjob.yaml 
+  686  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  687  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  688  kubectl delete -f ./batchpartitionjob.yaml 
+  689  kubectl create -f ./batchpartitionjob.yaml 
+  690  vi batchpartitionjob.yaml 
+  691  vi server-PExec.xml 
+  692  vi Dockerfile-PExec 
+  693  vi server-OL-TLEx.xml 
+  694  vi Dockerfile-OL-TLEx 
+  695  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  696  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  697  kubectl delete -f ./batchpartitionjob.yaml 
+  698  kubectl create -f ./batchpartitionjob.yaml 
+  699  vi batchpartitionjob.yaml 
+  700  vi src/scripts/batchframework.py 
+  701  f17d3ed99602: Layer already exists
+  702  docker build -t ajymau/batchcli:1 -f ./Dockerfile-BMgrCLI-Script .; docker tag ajymau/batchcli:1 ajymau/batchcli:dev-last; docker push ajymau/batchcli:dev-last
+  703  kubectl delete -f ./batchpartitionjob.yaml 
+  704  kubectl create -f ./batchpartitionjob.yaml 
+  705  ls
+  706  vi postgresql.xml 
+  707  ls
+  708  vi server-OL-TLEx.xml 
+  709  vi Dockerfile-OL-TLEx 
+  710  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  711  kubectl delete -f ./batchpartitionjob.yaml 
+  712  kubectl create -f ./batchpartitionjob.yaml 
+  713  vi server-PExec.xml 
+  714  find . -name "*" -exec grep -lni vt.prop.jms.1 {} \;
+  715  vi server-OL-TLEx.xml 
+  716  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  717  kubectl delete -f ./batchpartitionjob.yaml 
+  718  kubectl create -f ./batchpartitionjob.yaml 
+  719  cd logs
+  720  ls
+  721  rm -r messages.log 
+  722  kubectl cp batchpartition-xb69r:logs tl-logs
+  723  kubectl cp batchpartition-xb69r:logs tl-logs -c toplevel-job
+  724  ls
+  725  kubectl cp batchpartition-xb69r:logs pe-logs -c partition-exec1
+  726  cd ..
+  727  vi server-OL-TLEx.xml 
+  728  clear
+  729  cd partitions/
+  730  cd sample.batch.bonuspayout/
+  731  cd partitions/
+  732  ls
+  733  vi Dockerfile-OL-TLEx 
+  734  vi Dockerfile-PExec 
+  735  vi Dockerfile-OL-TLEx 
+  736  vi Dockerfile-PExec 
+  737  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  738  vi server-OL-TLEx.xml 
+  739  vi server-PExec.xml 
+  740  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  741  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  742  kubectl delete -f ./batchpartitionjob.yaml 
+  743  kubectl create -f ./batchpartitionjob.yaml 
+  744  vi Dockerfile-OL-TLEx 
+  745  vi server-OL-TLEx.xml 
+  746  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  747  kubectl delete -f ./batchpartitionjob.yaml 
+  748  kubectl create -f ./batchpartitionjob.yaml 
+  749  vi server-PExec.xml 
+  750  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  751  kubectl delete -f ./batchpartitionjob.yaml 
+  752  kubectl create -f ./batchpartitionjob.yaml 
+  753  cd logs
+  754  ls
+  755  mkdir logs
+  756  cd logs
+  757  kubectl cp batchpartition-fb9bt:logs tl-logs -c toplevel-job
+  758  kubectl cp batchpartition-fb9bt:logs pe-logs -c partition-exec1
+  759  docker images
+  760  docker run -it 1f81665e6ce1 /bin/bash
+  761  cd ..
+  762  ls
+  763  vi server-PExec.xml 
+  764  vi server-OL-TLEx.xml 
+  765  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  766  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  767  kubectl delete -f ./batchpartitionjob.yaml 
+  768  kubectl create -f ./batchpartitionjob.yaml 
+  769  rm -rf logs/
+  770  mkdir logs
+  771  cd logs
+  772  kubectl cp  batchpartition-9799j:logs tl-logs -c toplevel-job
+  773  kubectl cp  batchpartition-9799j:logs pe-logs -c partition-exec1
+  774  ls
+  775  cd pe-logs/
+  776  ls
+  777  cd ..
+  778  cd tl-logs/
+  779  ls
+  780  cd ../..
+  781  ls
+  782  vi server-OL-TLEx.xml 
+  783  cd ..
+  784  ls
+  785  cd ..
+  786  cd sample.batch.bonuspayout/
+  787  ls
+  788  cd src
+  789  ls
+  790  cd ..
+  791  cd ../..
+  792  cd
+  793  cd partitions/sample.batch.bonuspayout/partitions/
+  794  vi server-OL-TLEx.xml 
+  795  vi server-PExec.xml 
+  796  vi Dockerfile-OL-TLEx 
+  797  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  798  vi Dockerfile-OL-TLEx 
+  799  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  800  vi Dockerfile-PExec 
+  801  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  802  kubectl delete -f ./batchpartitionjob.yaml 
+  803  kubectl create -f ./batchpartitionjob.yaml 
+  804  vi server-PExec.xml 
+  805  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  806  kubectl delete -f ./batchpartitionjob.yaml 
+  807  kubectl create -f ./batchpartitionjob.yaml 
+  808  rm -rf logs
+  809  mkdir logs
+  810  cd logs
+  811  ls
+  812  kubectl cp  batchpartition-n4pdh:logs logs
+  813  kubectl cp  batchpartition-n4pdh:logs toplevel-job
+  814  ls
+  815  rm -rf *
+  816  kubectl cp  batchpartition-n4pdh:logs -c toplevel-job
+  817  kubectl cp  batchpartition-n4pdh:logs logs -c toplevel-job
+  818  ls
+  819  cd logs
+  820  ls
+  821  cd ..
+  822  vi server-OL-TLEx.xml 
+  823  vi server-PExec.xml 
+  824  clear
+  825  cd partitions/sample.batch.bonuspayout/partitions/
+  826  vi batchpartitionjob.yaml 
+  827  kubectl delete -f ./batchpartitionjob.yaml 
+  828  kubectl create -f ./batchpartitionjob.yaml 
+  829  vi batchpartitionjob.yaml 
+  830  kubectl delete -f ./batchpartitionjob.yaml 
+  831  kubectl create -f ./batchpartitionjob.yaml 
+  832  vi server-OL-TLEx.xml 
+  833  vi server-PExec.xml 
+  834  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  835  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  836  vi server-PExec.xml 
+  837  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  838  kubectl delete -f ./batchpartitionjob.yaml 
+  839  kubectl create -f ./batchpartitionjob.yaml 
+  840  rm -rf logs
+  841  mkdir logs
+  842  cd logs
+  843  kubectl cp  batchpartition-dpldv:logs toplevel-job
+  844  ls
+  845  cd toplevel-job/
+  846  ls
+  847  vi trace.log 
+  848  cd ..
+  849  kubectl cp  batchpartition-dpldv:logs toplevel-job -c partition-exec1
+  850  ls
+  851  kubectl cp  batchpartition-dpldv:logs part1 -c partition-exec1
+  852  kubectl cp  batchpartition-dpldv:logs tljob -c toplevel-job
+  853  ls
+  854  rm -rf toplevel-job/
+  855  ls
+  856  cd tljob/
+  857  vi trace
+  858  ls -l
+  859  vi trace_21.06.17_13.21.57.0.log 
+  860  cd ..
+  861  ls
+  862  cd part1/
+  863  ls
+  864  cd ../..
+  865  ls
+  866  cat server-OL-TLEx.xml 
+  867  vi server-OL-TLEx.xml 
+  868  vi server-PExec.xml 
+  869  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  870  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  871  kubectl delete -f ./batchpartitionjob.yaml 
+  872  kubectl create -f ./batchpartitionjob.yaml 
+  873  vi src/scripts/batchframework.py 
+  874  docker build -t ajymau/batchcli:1 -f ./Dockerfile-BMgrCLI-Script .; docker tag ajymau/batchcli:1 ajymau/batchcli:dev-last; docker push ajymau/batchcli:dev-last
+  875  kubectl delete -f ./batchpartitionjob.yaml 
+  876  kubectl create -f ./batchpartitionjob.yaml 
+  877  rm -rf logs
+  878  mkdir logs
+  879  cd logs
+  880  kubectl cp  batchpartition-768n7:logs tljob -c toplevel-job
+  881  ls
+  882  kubectl cp  batchpartition-768n7:logs pexec -c partition-exec1
+  883  ls
+  884  cd tljob/
+  885  ls
+  886  cd ..
+  887  ls
+  888  cd pexec/
+  889  ls
+  890  vi trace.log 
+  891  cd ../..
+  892  ls
+  893  cd batchprops/
+  894  ls
+  895  cd ..
+  896  ls
+  897  vi server-OL-TLEx.xml 
+  898  vi postgresql.xml 
+  899  vi src/scripts/batchframework.py 
+  900  docker build -t ajymau/batchcli:1 -f ./Dockerfile-BMgrCLI-Script .; docker tag ajymau/batchcli:1 ajymau/batchcli:dev-last; docker push ajymau/batchcli:dev-last
+  901  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  902  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  903  kubectl delete -f ./batchpartitionjob.yaml 
+  904  kubectl create -f ./batchpartitionjob.yaml 
+  905  vi server-OL-TLEx.xml 
+  906  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  907  ls -lt
+  908  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  909  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  910  kubectl delete -f ./batchpartitionjob.yaml 
+  911  kubectl create -f ./batchpartitionjob.yaml 
+  912  docker build -t ajymau/olpe-partitions:4 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:4 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  913  docker build -t ajymau/oltl-partitions:4 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:4 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  914  kubectl delete -f ./batchpartitionjob.yaml 
+  915  kubectl create -f ./batchpartitionjob.yaml 
+  916  cd partitions/sample.batch.bonuspayout/partitions/
+  917  kubectl delete -f ./batchpartitionjob.yaml 
+  918  kubectl create -f ./batchpartitionjob.yaml 
+  919  vi server-OL-TLEx.xml 
+  920  vi postgresql.xml 
+  921  find . -name "*" -exec grep -lni drop {} \;
+  922  cd ..
+  923  ls
+  924  cd ..
+  925  ls
+  926  cd ..
+  927  cd sample.batch.bonuspayout/
+  928  ls
+  929  find . -name "*" -exec grep -lni drop {} \;
+  930  vi ./src/main/java/com/ibm/websphere/samples/batch/jpa/DatabaseSetup.java
+  931  cd partitions/sample.batch.bonuspayout/partitions/
+  932  git status
+  933  docker images
+  934  docker pull ajymau/application-stack:test
+  935  docker inspect ajymau/application-stack:test
+  936  cd partitions/sample.batch.bonuspayout/partitions/
+  937  ls
+  938  vi batchpartitionjob.yaml 
+  939  vi Dockerfile-OL-TLEx
+  940  ls
+  941  cd sample.batch.bonuspayout/
+  942  ls
+  943  cd sample.batch.bonuspayout/
+  944  ls
+  945  vi batchjobmulti.yaml 
+  946  vi batchjobmulti2.yaml 
+  947  cd partitions/sample.batch.bonuspayout/partitions/
+  948  cd ..
+  949  cd partitions
+  950  ls
+  951  cd sample.batch.bonuspayout/
+  952  ls
+  953  cd partitions/
+  954  ls
+  955  vi  server-OL-TLEx.xml
+  956  vi Dockerfile-PExec 
+  957  vi Dockerfile-BMgrCLI-Script 
+  958  cd src
+  959  ls
+  960  cd scripts/
+  961  ls
+  962  vi batchframework.py 
+  963  ls
+  964  exit
+  965  ls
+  966  cd partitions/
+  967  cd sample.batch.bonuspayout/
+  968  ls
+  969  vi batchjobmulti2.yaml 
+  970  ls
+  971  cd partitions/
+  972  ls
+  973  vi Dockerfile-OL-TLEx 
+  974  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  975  vi Dockerfile-OL-TLEx 
+  976  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  977  vi Dockerfile-OL-TLEx 
+  978  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  979  vi Dockerfile-OL-TLEx 
+  980  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  981  exit
+  982  cd partitions/sample.batch.bonuspayout/
+  983  ls
+  984  cd partitions/
+  985  ls
+  986  vi Dockerfile-OL-TLEx 
+  987  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  988  vi Dockerfile-OL-TLEx 
+  989  exit
+  990  cd partitions/sample.batch.bonuspayout/partitions/
+  991  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  992  docker images
+  993  docker pull ajymau/open-liberty-batch-prototype:latest
+  994  docker build -t ajymau/oltl-partitions:5 -f Dockerfile-OL-TLEx .; docker tag ajymau/oltl-partitions:5 ajymau/oltl-partitions:dev-last; docker push ajymau/oltl-partitions:dev-last
+  995  docker build -t ajymau/olpe-partitions:5 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:5 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+  996  vi Dockerfile-OL-TLEx 
+  997  ls
+  998  vi Dockerfile-PExec 
+  999  docker build -t ajymau/olpe-partitions:5 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:5 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+ 1000  ls
+ 1001  cd partitions/
+ 1002  ls
+ 1003  cd sample.batch.bonuspayout/
+ 1004  ls
+ 1005  cd partitions/
+ 1006  docker build -t ajymau/olpe-partitions:5 -f Dockerfile-PExec .; docker tag ajymau/olpe-partitions:5 ajymau/olpe-partitions:dev-last; docker push ajymau/olpe-partitions:dev-last
+ 1007  ls
+ 1008  cd ..
+ 1009  ls
+ 1010  vi batchjobmulti2.yaml 
+ 1011  cd partitions/
+ 1012  ls
+ 1013  vi batchpartitionjob.yaml 
+ 1014  cp ~/.batch_rc cmdhistory.txt
+ 1015  cp ~/.batch_history cmdhistory.txt
+ 1016  history
+ 1017  history >> cmdhistory.txt
