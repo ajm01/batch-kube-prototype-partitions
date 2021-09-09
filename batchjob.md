@@ -238,7 +238,17 @@ or, from the command line:
 ```shell
 kubectl apply -f ./dbsecret.yaml
 ```
-
+# Create the jbatch partitioned App table
+You need to create the table to hold the account data for the java batch sample app. Locate the db instance pod in the my-postgresql-operator-dev4devs-com namespace.
+Exec into the shell of that pod and log into the postgre command line:
+```shell
+> psql -U sampleuser -d sampledb
+```
+Issue the following psql commnds:
+```shell
+sampledbproto=> CREATE TABLE bonuspayout.account  ("ACCTNUM" INTEGER NOT NULL, "BALANCE" INTEGER NOT NULL, "INSTANCEID" BIGINT NOT NULL, "ACCTCODE" VARCHAR(30) );
+sampledb=> ALTER TABLE bonuspayout.account ADD CONSTRAINT "ACCOUNT_PK" PRIMARY KEY("ACCTNUM", "INSTANCEID");
+```
 # Run the Job
 
 The batch job yaml file has been configured to reference the secret which makes the values avaialble to the pod environment that runs the batch job. In this manner the batch container will be able to connect to the database.
