@@ -246,7 +246,7 @@ Exec into the shell of that pod and log into the postgre command line:
 ```
 Issue the following psql commnds:
 ```shell
-sampledbproto=> CREATE TABLE bonuspayout.account  ("ACCTNUM" INTEGER NOT NULL, "BALANCE" INTEGER NOT NULL, "INSTANCEID" BIGINT NOT NULL, "ACCTCODE" VARCHAR(30) );
+sampledb=> CREATE TABLE bonuspayout.account  ("ACCTNUM" INTEGER NOT NULL, "BALANCE" INTEGER NOT NULL, "INSTANCEID" BIGINT NOT NULL, "ACCTCODE" VARCHAR(30) );
 sampledb=> ALTER TABLE bonuspayout.account ADD CONSTRAINT "ACCOUNT_PK" PRIMARY KEY("ACCTNUM", "INSTANCEID");
 ```
 # Run the Job
