@@ -255,7 +255,7 @@ The batch job yaml file has been configured to reference the secret which makes 
 
 ### Submit the Job itself:
 ```shell
-kubectl create -f ./batchjobmulti2.yaml
+kubectl create -f ./batchpartitionjob.yaml
 ```
 
 This will pull the latest image containing the bonuspayout app and the script that will start the server, submit the job and then stop the server. The Job itself will run the script.
