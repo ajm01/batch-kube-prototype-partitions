@@ -102,9 +102,9 @@ Below `kubectl` command will make the PostgreSQL Operator available in `my-postg
 **NOTE**: This Operator will be installed in the "my-postgresql-operator-dev4devs-com" namespace and will be usable from this namespace only.
 #### <i>Create a database to be used by the sample application</i>
 Database operator Default Service Account Pull Secret patch:<br>
- Much like the ingress service accounts, the DB Operator default service account will need to be patched with a pull secret configured for your personal docker account.
+Much like the ingress service accounts, the DB Operator default service account will need to be patched with a pull secret configured for your personal docker account.
 
- - switch to th edefault context:
+ - switch to the my-postgresql-operator-dev4devs-com context:
  ```shell
  > kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com
 ```
@@ -127,10 +127,7 @@ Database operator Default Service Account Pull Secret patch:<br>
 ```shell
 > kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
 ```
-Since the PostgreSQL Operator we installed in above step is available only in `my-postgresql-operator-dev4devs-com` namespace, let's first make sure that odo uses this namespace to perform any tasks:
-```shell
-> odo project set my-postgresql-operator-dev4devs-com
-```
+
 Create an odo project from which we will set up and configure the database instance:
 ```shell
 >odo create java-openliberty jbatch-proto
