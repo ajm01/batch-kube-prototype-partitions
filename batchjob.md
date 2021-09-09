@@ -59,32 +59,6 @@ to add a pull secret for these service accounts: <br>
 > kubectl patch serviceaccount ingress-nginx -p '{"imagePullSecrets": [{"name": "regcred"}]}'
 ```
 
- Default Service Account Pull Secret patch:<br>
- Much like the ingress service accounts, the default service account will need to be patched with a pull secret configured for your personal docker account. 
-
- - switch to th edefault context:
- ```shell
- > kubectl config set-context --current --namespace=default
-```
-
- - create the same docker-registry secret configured for your docker , now for the default minikube context:
- ```shell
- > kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
- ```
-
-
-~~~
-        where:
-          - <your-registry-server> is the DockerHub Registry FQDN. (https://index.docker.io/v1/)
-          - <your-name> is your Docker username.
-          - <your-pword> is your Docker password.
-          - <your-email> is your Docker email.
-~~~
-
-- Add this new cred ('regcred' in the example above) to the default service account in minikube:
-```shell
-> kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
-```
 Kubernetes Dashboard graphical UI config:<br>
  It is helpful to make use of the basic kubernetes dashboard UI to interact with the various kubernetes entities in a graphical way. Please refer to the directions [here](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) for enabling and starting the dashboard. Please note, this require the installation of and access to a desktop environment in order to make use of the dashboard. (GNOME + xrdb for example)
 
@@ -127,6 +101,32 @@ Below `kubectl` command will make the PostgreSQL Operator available in `my-postg
 ```
 **NOTE**: This Operator will be installed in the "my-postgresql-operator-dev4devs-com" namespace and will be usable from this namespace only.
 #### <i>Create a database to be used by the sample application</i>
+Database operator Default Service Account Pull Secret patch:<br>
+ Much like the ingress service accounts, the DB Operator default service account will need to be patched with a pull secret configured for your personal docker account.
+
+ - switch to th edefault context:
+ ```shell
+ > kubectl config set-context --current --namespace=my-postgresql-operator-dev4devs-com
+```
+
+ - create the same docker-registry secret configured for your docker , now for the default minikube context:
+ ```shell
+ > kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+ ```
+
+
+~~~
+        where:
+          - <your-registry-server> is the DockerHub Registry FQDN. (https://index.docker.io/v1/)
+          - <your-name> is your Docker username.
+          - <your-pword> is your Docker password.
+          - <your-email> is your Docker email.
+~~~
+
+- Add this new cred ('regcred' in the example above) to the DB Operator default service account in minikube:
+```shell
+> kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+```
 Since the PostgreSQL Operator we installed in above step is available only in `my-postgresql-operator-dev4devs-com` namespace, let's first make sure that odo uses this namespace to perform any tasks:
 ```shell
 > odo project set my-postgresql-operator-dev4devs-com
