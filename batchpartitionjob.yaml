@@ -17,14 +17,18 @@ spec:
        - name: logs 
          mountPath: /logs
        image: ajymau/oltl-partitions:dev-last
+       env:
+       - name: SEC_IMPORT_K8S_CERTS
+         value: "true"
        envFrom:
        - secretRef:
            name: bp-database-secret
        imagePullPolicy: Always
-       command:
-       - /bin/sh
-       - -c
-       - /opt/ol/wlp/bin/server run -- --defaultHostName=$HOSTNAME
+       args: ["/opt/ol/wlp/bin/server", "run", "--", "--defaultHostName=$HOSTNAME"]
+#       command:
+#       - /bin/sh
+#       - -c
+#       - /opt/ol/wlp/bin/server run -- --defaultHostName=$HOSTNAME
      - name: partition-exec1 
 #       volumeMounts:
 #       - name: logs
